@@ -1,0 +1,17 @@
+-- Script replay gerakan karakter (legal & edukatif)
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+local char = player.Character or player.CharacterAdded:Wait()
+local root = char:WaitForChild("HumanoidRootPart")
+
+local path = {
+	Vector3.new(0, 5, 0),
+	Vector3.new(10, 5, 0),
+	Vector3.new(10, 5, 10),
+	Vector3.new(0, 5, 10)
+}
+
+for _, pos in ipairs(path) do
+	root.CFrame = CFrame.new(pos)
+	wait(0.2)
+end
